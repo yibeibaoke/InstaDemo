@@ -7,6 +7,8 @@ verify_ssl = true
 
 [packages]
 django = "*"
+pillow = "*"
+django-imagekit = "*"
 
 [requires]
 python_version = "3.7"
