@@ -9,6 +9,7 @@ verify_ssl = true
 django = "*"
 pillow = "*"
 django-imagekit = "*"
+django-annoying = "*"
 
 [requires]
 python_version = "3.7"
