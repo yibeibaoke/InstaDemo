@@ -10,6 +10,7 @@ django = "*"
 pillow = "*"
 django-imagekit = "*"
 django-annoying = "*"
+gunicorn = "*"
 
 [requires]
 python_version = "3.7"
