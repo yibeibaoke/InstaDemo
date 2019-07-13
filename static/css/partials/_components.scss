@@ -1,0 +1,214 @@
+html {
+  height: 100%;
+}
+body {
+  min-height: 100%;
+  background-color: #fafafa;
+  &.white {
+    background-color: #fff;
+    .content-wrapper { background-color: #fff; }
+  }
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.content-wrapper {
+  margin-top: 57px;
+  margin-bottom: 60px;
+  background-color: #fafafa;
+  @media screen and (max-width : 768px) {
+    margin-top: 50px;
+  }
+}
+
+.picture-circle {
+  border-radius: 100%;
+  width: 150px;
+  height: 150px;
+  &--medium {
+    @extend .picture-circle;
+    width: 36px;
+    height: 36px;
+  }
+  &--small {
+    @extend .picture-circle;
+    width: 30px;
+    height: 30px;
+  }
+}
+
+.picture-square {
+  position: relative;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-color: #fff;
+  cursor: pointer;
+  > a {
+    cursor: pointer;
+  }
+  &:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+  }
+  .content {
+    cursor: pointer;
+    display: none;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.3);
+  }
+  &:hover {
+    .content {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: #fff;
+      .fa {
+        color: #fff;
+        margin-right: 5px;
+        &:not(:first-of-type) {
+          margin-left: 25px;
+          @media screen and (max-width: $mobile) {
+            margin-left: 10px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.options-bubbles {
+  display: inline-block;
+  &:hover {
+    cursor: pointer;
+  }
+  .bubble {
+    display: inline-block;
+    height: 5px;
+    width: 5px;
+    border: 1px solid #ccc * 0.7;
+    border-radius: 100%;
+    margin: 0;
+  }
+}
+
+
+.desktop-block {
+  display: block;
+  @media screen and (max-width: $mobile) {
+    display: none;
+  }
+}
+
+.mobile-block {
+  display: none;
+  @media screen and (max-width: $mobile) {
+    display: block;
+  }
+}
+
+
+// specific to chat listings page
+#messages  {
+  max-width: 600px;
+  margin: 0 auto;
+  .back-button {
+    color: #333;
+    margin-top: 10px;
+    font-size: 20px;
+  }
+}
+.message {
+  position: relative;
+  &:not(:last-of-type) {
+    border-bottom: 1px solid #ccc;
+  }
+  .message-info {
+    display: inline-block;
+    vertical-align: middle;
+    padding-left: 10px;
+    .username, .text{
+      margin: 0;
+    }
+    .username {
+      color: #333;
+    }
+    .text {
+      color: #ccc;
+    }
+  }
+  .timestamp {
+    position: absolute;
+    top: 14px;
+    right: 5px;
+    color: #333;
+  }
+}
+
+.message-sent, .message-received {
+  border: 1px solid #ccc;
+  padding: 15px;
+  border-radius: 4px;
+  max-width: 75%;
+  margin: 15px auto;
+}
+
+// specific to chat page
+.message-sent {
+  text-align: right;
+  margin-left: 25%;
+  background: #fafafa * 0.97;
+}
+
+// specific to chat page
+.message-received {
+  position: relative;
+  margin-right: 25%;
+  margin-top: 30px;
+  .sender {
+    position: absolute;
+    top: -18px;
+    left: 0;
+    color: #999;
+    font-size: 12px;
+  }
+}
+
+#chatForm {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  text-align: center;
+  input {
+    width: 100%;
+    max-width: 600px;
+    padding: 15px;
+    border: none;
+    border-top: 1px solid #ccc;
+  }
+}
+
+.controls {
+  background: #fff;
+  .right {
+    text-align: right;
+  }
+  a {
+    color: #333;
+  }
+  .new-message {
+    font-size: 25px;
+    .fa {
+      padding: 15px;
+    }
+  }
+  @media (max-width: 768px) {
+    &.desktop { display: none; }
+  }
+}

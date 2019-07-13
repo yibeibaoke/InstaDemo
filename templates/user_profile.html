@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% load custom_tags %}
+
+{% block content %}
+
+<div class="profile">
+
+    <div class="profile__head">
+        <div class="row">
+            <div class="col-xs-4 left">
+                {% if object.profile_pic %}
+                    <img class="picture-circle" src="http://{{ request.META.HTTP_HOST }}/{{object.profile_pic.url}}">
+                {% endif %}
+            </div>
+            <div class="col-xs-8 right">
+                <div class="name-buttons">
+                    <h1 class="username">{{ object.username }}</h1>
+                    {% if user == object %}
+                        <a class="edit-desktop" href="{% url 'edit_profile' object.pk %}">
+                            <button class="edit-profile">Edit Profile</button>
+                        </a>
+                    {% else %}
+                        {% is_following user object as following %}
+                        <div class="follow-toggle__container">
+                            <button class="btn btn-primary {% if not following %}follow-user{% else %}unfollow-user{% endif %}" id="{{ object.pk }}">
+                                {% if following %}
+                                    Unfollow
+                                {% else %}
+                                    Follow
+                                {% endif %}
+                            </button>
+                        </div>
+                    {% endif %}
+                </div>
+
+                <div>
+                    <ul class="stats">
+                        <div class="col-xs-4"><li class="stats__count"><span>{{ object.posts.count }}</span><br> posts</li></div>
+                        <div class="col-xs-4"><a href="/" style="text-decoration: none; color: black;"><li class="stats__count"><span class="follower_count" id="follower_id">{{ object.get_followers.count }}</span><br> followers</li></a></div>
+                        <div class="col-xs-4"><a href="/" style="text-decoration: none; color: black;"><li class="stats__count"><span>{{ object.get_connections.count }}</span><br> following</li></a></div>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="profile__body">
+        <div class="row">
+        {% for post in object.posts.all %}
+            <div class="col-xs-4">
+                <div class="picture-square" style="background-image: url(http://{{ request.META.HTTP_HOST }}/{{ post.image.url }}); background-size: contain;">
+                    <a href="{% url 'post' post.pk %}">
+                    <div class="content">
+                        <i class="fa fa-heart" aria-hidden="true"></i> {{ post.get_like_count }}
+                        <i class="fa fa-comment" aria-hidden="true"></i> {{ post.get_comment_count }}
+                    </div>
+                    </a>
+                </div>
+            </div>
+        {% endfor %}
+        </div>
+    </div>
+
+</div>
+
+{% endblock content %}

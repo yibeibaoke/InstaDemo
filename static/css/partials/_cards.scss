@@ -1,0 +1,251 @@
+.cards-listing {
+  max-width: 600px;
+  width: 100%;
+  margin: 20px auto;
+}
+
+.card {
+  background-color: #fff;
+  margin-bottom: 50px;
+  border: 1px solid #efefef;
+  border-radius: 3px;
+  &__panel-head {
+    background: #fff;
+    padding: 14px 20px 12px;
+    .poster {
+      &__profilepic {
+        border-radius: 100%;
+        max-width: 30px;
+        max-height: 30px;
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+      }
+      &__name {
+        color: #262626;
+        font-weight: bold;
+        &:hover {
+          color: #262626 * 2;
+          text-decoration: none;
+        }
+      }
+      &__timestamp {
+        float: right;
+        color: #999;
+      }
+    }
+  }
+  &__main-image {
+    max-width: 100%;
+    max-height: 600px;
+    height: auto;
+    margin: 0 auto;
+    display: block;
+  }
+  &__panel-body {
+    padding: 20px;
+    padding-bottom: 0;
+    a {
+      color: #333;
+    }
+    .likes {
+      font-weight: bold;
+      margin-bottom: 5px;
+    }
+    .view-more {
+      @include grey-anchor();
+    }
+  }
+  @media screen and (max-width: $mobile) {
+    border-right: none;
+    border-left: none;
+  }
+}
+
+.comment-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  &__comment {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    .user {
+      @include grey-anchor();
+      font-weight: bold;
+    }
+  }
+}
+
+.likes-timestamp-row {
+  margin-top: 15px;
+  > div {
+    display: inline-block;
+  }
+  .likes {
+    font-weight: bold;
+    a {
+      color: #333;
+    }
+  }
+  .timestamp {
+    float: right;
+  }
+}
+
+#logoutModal {
+  &.fade.in {
+    display: flex !important;
+    align-items: center;
+  }
+  .modal-content {
+    border-radius: 0;
+  }
+  ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  a {
+    width: 100%;
+    line-height: 50px;
+    border-bottom: 1px solid #dbdbdb;
+    color: #262626;
+  }
+  @media screen and (max-width: 768px) {
+    .modal-dialog {
+      width: 100%;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .modal-dialog {
+      margin: 0;
+    }
+  }
+  @media screen and (max-width: 415px) {
+    &.fade.in {
+      align-items: flex-end;
+    }
+  }
+}
+
+.single-post-card {
+  display: flex;
+  align-items: stretch;
+  box-sizing: border-box;
+  flex-direction: column;
+  flex-shrink: 0;
+  padding-right: 335px;
+  width: 100%;
+  position: relative;
+  background-color: #fff;
+  .header, .comments-portion {
+    display: flex;
+    flex-shrink: 0;
+  }
+  .header {
+    border-bottom: 1px solid #ccc;
+    padding: 20px 0;
+    flex-direction: row;
+    position: absolute;
+    top: 0;
+    right: 24px;
+    width: 287px;
+    display: flex;
+    align-items: center;
+    img {
+      margin-right: 5px;
+    }
+    a {
+      color: #262626;
+      font-weight: bold;
+    }
+  }
+  .comments-portion {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 335px;
+    padding: 0 24px;
+    flex-direction: column;
+  }
+  @media screen and (max-width: 875px) {
+    padding-right: 0;
+    .header, .comments-portion {
+      position: relative;
+      width: 100%;
+    }
+    .header {
+      top: 0;
+      right: 0;
+      padding: 18px 20px;
+      border: none;
+    }
+    .comments-portion {
+
+    }
+  }
+}
+
+.input-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 68px;
+  padding-left: 40px;
+  .submit-like {
+    cursor: pointer;
+    position: absolute;
+    top: 32%;
+    left: 0;
+    color: #C2C2C2;
+    font-size: 24px;
+    &:hover {
+      cursor: pointer;
+    }
+    &.fa-heart {
+      color: #ED4956;
+    }
+  }
+  .comment-input-wrapper {
+    display: inline-block;
+    color: #262626;
+    font-size: 15px;
+    width: 100%;
+    input {
+      width: 100%;
+      border: none;
+      outline: none;
+    }
+  }
+}
+
+.profile-settings, .auth-form {
+  @media screen and (min-width: 768px) {
+    max-width: 60%;
+    margin: 0 auto;
+    border-top: none;
+  }
+}
+.profile-settings {
+  margin-top: 60px;
+  border-top: 1px solid #dbdbdb;
+}
+.profile-pic-name {
+  padding: 30px 0;
+  span {
+    font-size: 24px;
+    font-weight: bold;
+    vertical-align: middle;
+    margin-left: 32px;
+  }
+}
+.auth-form {
+  .btn {
+    width: 100%;
+    margin-bottom: 15px;
+    font-weight: bold;
+  }
+  .help-text {
+    font-size: 12px;
+  }
+}

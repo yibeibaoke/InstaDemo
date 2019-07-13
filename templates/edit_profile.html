@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="row profile-settings">
+  <div class="col-xs-12">
+    <div class="profile-pic-name">
+      {% if user.profile_pic %}
+        <img class="picture-circle--medium" src="http://{{ request.META.HTTP_HOST }}/{{user.profile_pic.url}}">
+      {% endif %}
+      <span class="username">{{ user.username }}</span>
+    </div>
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Update" />
+    </form>
+  </div>
+</div>
+
+{% endblock content %}

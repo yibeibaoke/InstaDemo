@@ -1,0 +1,77 @@
+.navbar {
+  background-color: #fff;
+  border-bottom-color: #dbdbdb;
+
+  .fa {
+    font-size: 25px;
+    color: #333 * 3;
+    &.active {
+      color: #333;
+    }
+  }
+
+  .mobile {
+    display: none;
+    a, a:hover, a:focus {
+      color: #333;
+    }
+    .col-xs-3 {
+      text-align: center;
+      min-height: 50px;
+      width: 20%;
+      .fa {
+        font-size: 25px;
+        margin-top: 13px;
+      }
+    }
+  }
+
+  .navbar-brand:not(:first-of-type) {
+    float: right;
+  }
+
+  &#mobile-top-nav {
+    .item-right {
+      float: right;
+      padding: 15px;
+    }
+    .back-button, .new-message {
+      .fa {
+        padding: 16px 15px 15px;
+        font-size: 16px;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+    }
+    .new-message {
+      float: right;
+    }
+  }
+
+  @media screen and (max-width: 768px) {
+    &#main-nav {
+      top: initial;
+      bottom: 0;
+      margin: 0;
+      border-top: 1px solid #ccc;
+    }
+    .desktop {
+      display: none;
+    }
+    .mobile {
+      display: block;
+    }
+  }
+}
+
+
+.back-button {
+  .fa {
+    color: #333;
+    margin-right: 15px;
+  }
+  &:hover {
+    cursor: pointer;
+  }
+}

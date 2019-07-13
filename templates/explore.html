@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="row" id="explore">
+  {% for post in object_list %}
+    <div class="col-xs-4 col-sm-3">
+      <div class="picture-square" style="background-image: url(http://{{ request.META.HTTP_HOST }}/{{ post.image.url }}); background-size: contain;">
+        <a href="{% url 'post' post.pk %}">
+          <div class="content"></div>
+        </a>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+
+
+{% endblock %}
